@@ -1,25 +1,41 @@
 package com.qapital.savings.rule;
 
-import org.joda.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The core configuration object for a Savings Rule.
  */
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SavingsRule {
 	
 	private Long id;
+
+	@Range(min = 1)
+	@NotNull
 	private Long userId;
-	
+
 	private String placeDescription;
+
+	@NotNull
 	private Double amount;
+
 	private List<Long> savingsGoalIds;
+
+	@NotNull
 	private RuleType ruleType;
+
+	@NotNull
 	private Status status;
 	
-	public SavingsRule() {}
+	public SavingsRule() {
+		// TODO the factory methods initialize savingsGoalId to an empty list but Jackson will leave it as null
+		this.savingsGoalIds = new ArrayList<>();
+	}
 
 	public static SavingsRule createGuiltyPleasureRule(Long id, Long userId, String placeDescription, Double penaltyAmount) {
 		SavingsRule guiltyPleasureRule = new SavingsRule();
