@@ -138,5 +138,4 @@ public class StandardSavingsRulesServiceTest {
         return new Double((double) Math.round(savingsEvents.get(0).getAmount() * 100) / 100);
     }
 
-
 }
