@@ -42,7 +42,7 @@ public class StandardSavingsRulesService implements SavingsRulesService {
     @Override
     public List<SavingsEvent> executeRule(SavingsRule savingsRule) {
 
-        if(!savingsRule.getStatus().equals(SavingsRule.Status.active)) {
+        if (!savingsRule.getStatus().equals(SavingsRule.Status.active)) {
             // TODO : no specification on how to handle this, returning empty result set
             return Collections.emptyList();
         }
