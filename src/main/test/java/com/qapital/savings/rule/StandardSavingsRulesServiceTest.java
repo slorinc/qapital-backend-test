@@ -93,7 +93,7 @@ public class StandardSavingsRulesServiceTest {
     }
 
     @Test
-    public void noTransactionsInRequest() throws Exception {
+    public void noTransactionInQueue() throws Exception {
 
         //Given
         given(transactionsService.latestTransactionsForUser(1L)).willReturn(Collections.emptyList());
