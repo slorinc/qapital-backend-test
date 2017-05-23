@@ -18,7 +18,7 @@ public class StandardTransactionsService implements TransactionsService {
     private static List<Transaction> createDummyTransactions(Long userId) {
 
         List<Transaction> transactions = new ArrayList<>();
-//TODO
+
         transactions.add(new Transaction(1L,userId, new BigDecimal("-5.34"), "Starbucks", new LocalDate(2015,7,1)));
         transactions.add(new Transaction(2L,userId, new BigDecimal("-2.16"), "Starbucks", new LocalDate(2015,7,2)));
         transactions.add(new Transaction(3L,userId, new BigDecimal("-3.09"), "McDonald's", new LocalDate(2015,7,2)));

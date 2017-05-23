@@ -22,7 +22,6 @@ public class SavingsEvent {
 	private Long savingsRuleId;
 	private EventName eventName;
 	private LocalDate date;
-	//TODO should be refactored to BigDecimal
 	private BigDecimal amount;
 	private Long triggerId;
 	private RuleType ruleType;
