@@ -3,15 +3,17 @@ package com.qapital.bankdata.transaction;
 
 import org.joda.time.LocalDate;
 
+import java.math.BigDecimal;
+
 public class Transaction {
 
     private Long id;
     private Long userId;
-    private Double amount;
+    private BigDecimal amount;
     private String description;
     private LocalDate date;
 
-    public Transaction(Long id, Long userId, Double amount, String description, LocalDate date) {
+    public Transaction(Long id, Long userId, BigDecimal amount, String description, LocalDate date) {
         this.id = id;
         this.userId = userId;
         this.amount = amount;
@@ -35,11 +37,11 @@ public class Transaction {
         this.userId = userId;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

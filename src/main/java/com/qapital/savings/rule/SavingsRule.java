@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class SavingsRule {
 	private String placeDescription;
 
 	@NotNull
-	private Double amount;
+	private BigDecimal amount;
 
 	private List<Long> savingsGoalIds;
 
@@ -37,7 +38,7 @@ public class SavingsRule {
 		this.savingsGoalIds = new ArrayList<>();
 	}
 
-	public static SavingsRule createGuiltyPleasureRule(Long id, Long userId, String placeDescription, Double penaltyAmount) {
+	public static SavingsRule createGuiltyPleasureRule(Long id, Long userId, String placeDescription, BigDecimal penaltyAmount) {
 		SavingsRule guiltyPleasureRule = new SavingsRule();
         guiltyPleasureRule.setId(id);
 		guiltyPleasureRule.setUserId(userId);
@@ -49,7 +50,7 @@ public class SavingsRule {
 		return guiltyPleasureRule;
 	}
 	
-	public static SavingsRule createRoundupRule(Long id, Long userId, Double roundupToNearest) {
+	public static SavingsRule createRoundupRule(Long id, Long userId, BigDecimal roundupToNearest) {
 		SavingsRule roundupRule = new SavingsRule();
         roundupRule.setId(id);
 		roundupRule.setUserId(userId);
@@ -94,11 +95,11 @@ public class SavingsRule {
         this.placeDescription = placeDescription;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 

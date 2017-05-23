@@ -4,6 +4,7 @@ import com.qapital.savings.rule.SavingsRule;
 import com.qapital.savings.rule.SavingsRule.RuleType;
 import org.joda.time.LocalDate;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -21,7 +22,8 @@ public class SavingsEvent {
 	private Long savingsRuleId;
 	private EventName eventName;
 	private LocalDate date;
-	private Double amount;
+	//TODO should be refactored to BigDecimal
+	private BigDecimal amount;
 	private Long triggerId;
 	private RuleType ruleType;
 	private Long savingsTransferId;
@@ -30,7 +32,7 @@ public class SavingsEvent {
 
     public SavingsEvent() {}
 
-	public SavingsEvent(Long userId, Long savingsGoalId, Long savingsRuleId, EventName eventName, LocalDate date, Double amount, Long triggerId, SavingsRule savingsRule) {
+	public SavingsEvent(Long userId, Long savingsGoalId, Long savingsRuleId, EventName eventName, LocalDate date, BigDecimal amount, Long triggerId, SavingsRule savingsRule) {
 		this.userId = userId;
 		this.savingsGoalId = savingsGoalId;
 		this.savingsRuleId = savingsRuleId;
@@ -90,14 +92,14 @@ public class SavingsEvent {
 		this.date = date;
 	}
 	
-	public Double getAmount() {
+	public BigDecimal getAmount() {
 		if (amount == null) {
-			return 0d;
+			return BigDecimal.ZERO;
 		}
 		return amount;
 	}
 	
-	public void setAmount(Double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 	
